@@ -7,7 +7,7 @@ COPY . /usr/src/kafkacat
 
 RUN set -ex; \
   runtimeDeps='libssl1.1 libsasl2-2'; \
-  buildDeps='curl ca-certificates build-essential zlib1g-dev liblz4-dev libssl-dev libsasl2-dev python cmake libjansson-dev autoconf automake'; \
+  buildDeps='curl ca-certificates build-essential zlib1g-dev liblz4-dev libssl-dev libsasl2-dev python cmake libcurl3-dev libjansson-dev autoconf automake'; \
   export DEBIAN_FRONTEND=noninteractive; \
   apt-get update && apt-get install -y $runtimeDeps $buildDeps --no-install-recommends; \
   rm -rf /var/lib/apt/lists/*; \
