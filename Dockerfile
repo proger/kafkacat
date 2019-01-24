@@ -7,8 +7,9 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
 
 RUN runtimeDeps='libssl1.1 libsasl2-2'; \
-  buildDeps='curl ca-certificates build-essential zlib1g-dev liblz4-dev libssl-dev libsasl2-dev python cmake libcurl3-dev libjansson-dev autoconf automake libtool'; \
+  buildDeps='curl ca-certificates build-essential zlib1g-dev liblz4-dev libssl-dev libsasl2-dev python cmake libcurl3-dev autoconf automake libtool pkg-config autogen'; \
   apt-get install -y $runtimeDeps $buildDeps --no-install-recommends
+RUN apt-get install -y libjansson-dev
 
 COPY . /usr/src/kafkacat
 
